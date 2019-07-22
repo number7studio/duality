@@ -1,25 +1,42 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Home } from './pages/Home';
+import { Box, Button, Heading, Grommet } from 'grommet';
+import { Notification } from 'grommet-icons';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import MoodEntry from './pages/MoodEntry';
+import Mood from './pages/Mood';
+
+
+const AppBar = (props: any) => (
+  <Box
+    tag='header'
+    direction='row'
+    align='center'
+    justify='between'
+    background='brand'
+    pad={{ left: 'medium', right: 'small', vertical: 'small' }}
+    elevation='medium'
+    style={{ zIndex: '1' }}
+    {...props}
+  />
+);
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Grommet full>
+      <Box
+        fill
+        style={{ width: "100%", maxWidth: "450px", margin: "0 auto" }}
+        alignSelf="center"
+        elevation="xsmall">
+        <AppBar> Self Tracker </AppBar>
+        <Router>
+          <Route path="/" exact component={Home} />
+          <Route path="/mood" exact strict={true} component={Mood} />
+          <Route path="/mood/" exact strict={true} component={MoodEntry} />
+        </Router>
+      </Box>
+    </Grommet>
   );
 }
 
