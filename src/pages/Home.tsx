@@ -7,11 +7,11 @@ export const Home: React.FC = () =>{
         <Box direction="column" justify="center" pad="small">
             <Homerow manageRoute="/food" title="Food" />
             <Homerow manageRoute="/mood" quickAddRoute="/mood/" title="Mood" />
-            <Homerow title="Sleep" />
+            <Homerow title="Sleeps" />
             <Homerow title="Drink" />
             <Homerow title="Socialization" />
             <Homerow title="Meditation" />
             <Homerow title="Drugs" />
-        </Box>
+        </Box> 
     )
 }

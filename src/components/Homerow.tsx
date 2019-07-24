@@ -1,8 +1,8 @@
 import React from 'react';
 import Button from './Button';
 import Box from './Box';
-import { Anchor } from 'grommet';
 import { Add } from 'grommet-icons';
+import Link from './Link';
 
 
 interface Props {
@@ -12,7 +12,7 @@ interface Props {
 }
 
 
-export default (props: Props) => (
+export default ({title, manageRoute='', quickAddRoute= ''}: Props) => (
     <Box 
         justify="between" 
         alignSelf="stretch" 
@@ -20,15 +20,15 @@ export default (props: Props) => (
         align="center" 
         alignContent="center"
         pad="small">
-        <Anchor 
-            href={props.manageRoute}> 
-            <Button label={props.title}/>
-        </Anchor>
-        <Anchor 
-            href={props.quickAddRoute}> 
+        <Link 
+            href={manageRoute}> 
+            <Button label={title}/>
+        </Link>
+        <Link 
+            href={quickAddRoute}> 
             <Button primary icon={
                     <Add color='white'/>
                 } ></Button>
-        </Anchor>
+        </Link>
     </Box>
 );
