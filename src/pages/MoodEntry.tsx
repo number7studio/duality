@@ -1,5 +1,6 @@
 import React from 'react';
 import { Grid, Box, RangeInput, FormField, Text, Button } from 'grommet';
+import { GraphQLClient } from 'graphql-request';
 
 const MoodInput = ({ label }: { label: string }) => {
     const [value, setValue] = React.useState();
@@ -13,7 +14,7 @@ const MoodInput = ({ label }: { label: string }) => {
                     max={5}
                     step={1}
                     onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                        setValue(event.target.value)
+                        fetch('http://100.115.92.199:3005/graphql', {method: 'POST',mode: 'cors', body: JSON.stringify({"query": "mutation { insert_mood_events(objects: [{emotion: \"\", rating: 10}, {emotion: \"\", rating: 10}]) {   returning { emotion rating created_at }}}"}), headers: {'Content-Type': 'application/json'}}).then((res) => res.json()).then(console.log)
                     }} />
             </Box>
         </Box>

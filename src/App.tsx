@@ -1,7 +1,6 @@
 import React from 'react';
 import { Home } from './pages/Home';
-import { Box, Button, Heading, Grommet } from 'grommet';
-import { Notification } from 'grommet-icons';
+import { Box,  Grommet } from 'grommet';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import MoodEntry from './pages/MoodEntry';
 import Mood from './pages/Mood';
@@ -19,6 +18,7 @@ const AppBar = (props: any) => (
     style={{ zIndex: '1' }}
     {...props}
   />
+  
 );
 
 const App: React.FC = () => {
